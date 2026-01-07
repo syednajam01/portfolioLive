@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 app.use('/portfolioLive', express.static(path.join(__dirname, '..', 'dist')));
 
 // SPA fallback for client-side routing
-app.get('/portfolioLive/*', (req, res) => {
+app.get('/portfolioLive/(.*)', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
 });
 
